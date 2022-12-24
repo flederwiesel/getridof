@@ -16,6 +16,7 @@ var selectors = [
   // IDs
   "#__ap_gfc_consent_box_btn__",
 	"#ad-blocking,#adblocktest",
+  "#cookiescript_injected",
 	"#credential_picker_container,#g_id_onload,#privacy-popup",
 	"#ccc,#ccc-module,#ccc-notify,#ccc-overlay",
 	"#dpr-manager",
