@@ -15,34 +15,34 @@
 var selectors = [
   // IDs
   "#__ap_gfc_consent_box_btn__",
-	"#ad-blocking,#adblocktest",
+  "#ad-blocking,#adblocktest",
   "#cookiescript_injected",
-	"#credential_picker_container,#g_id_onload,#privacy-popup",
-	"#ccc,#ccc-module,#ccc-notify,#ccc-overlay",
-	"#dpr-manager",
+  "#credential_picker_container,#g_id_onload,#privacy-popup",
+  "#ccc,#ccc-module,#ccc-notify,#ccc-overlay",
+  "#dpr-manager",
   "#ez-cookie-dialog-wrapper",
   "#privacy-banner",
-	"#tracking_leaderboard_container",
+  "#tracking_leaderboard_container",
   // scripts and pixels
-	"*[src*=cookieControl]",
-	"*[src*=monetization]",
-	"*[src*=ad-delivery],*[src*=doubleclick]",
+  "*[src*=cookieControl]",
+  "*[src*=monetization]",
+  "*[src*=ad-delivery],*[src*=doubleclick]",
   // cookie banners and trackers
   "div.ezmob-footer",
   "div.fc-consent-root,div.fc-dialog-overlay",
-	"div[class*=sc-15dps6c-0]",
+  "div[class*=sc-15dps6c-0]",
   "*[title='Consent Management']",
-	"iframe[name$=apiLocator],iframe[name^=googlefc]",
-	"iframe[name|=goog_topics_frame]",
-	"iframe[name=__cmpLocator]",
+  "iframe[name$=apiLocator],iframe[name^=googlefc]",
+  "iframe[name|=goog_topics_frame]",
+  "iframe[name=__cmpLocator]",
   // "voluntary" abo suggestions
-	"leo-abo-hint,ion-modal,ion-popover",
+  "leo-abo-hint,ion-modal,ion-popover",
 ];
 
 // This should be a "all scripts loaded" hook, however, I did not find one yet...
 setTimeout(() => {
 
-	console.clear();
+  console.clear();
   removed = 0;
 
   for (sel in selectors)
