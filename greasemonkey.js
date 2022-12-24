@@ -20,6 +20,7 @@ var selectors = [
 	"#credential_picker_container,#g_id_onload,#privacy-popup",
 	"#ccc,#ccc-module,#ccc-notify,#ccc-overlay",
 	"#dpr-manager",
+  "#ez-cookie-dialog-wrapper",
   "#privacy-banner",
 	"#tracking_leaderboard_container",
   // scripts and pixels
@@ -27,6 +28,7 @@ var selectors = [
 	"*[src*=monetization]",
 	"*[src*=ad-delivery],*[src*=doubleclick]",
   // cookie banners and trackers
+  "div.ezmob-footer",
   "div.fc-consent-root,div.fc-dialog-overlay",
 	"div[class*=sc-15dps6c-0]",
   "*[title='Consent Management']",
