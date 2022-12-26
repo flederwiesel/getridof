@@ -39,6 +39,9 @@ var selectors = [
   "leo-abo-hint,ion-modal,ion-popover",
 ];
 
+var iframes = [
+];
+
 // This should be a "all scripts loaded" hook, however, I did not find one yet...
 setTimeout(() => {
 
@@ -52,6 +55,22 @@ setTimeout(() => {
     removed += elems.length;
     console.log("Removed " + elems.length + " \"" + selectors[sel] + "\".");
   }
+
+  // The selectors choke on URLs, iterate over iframes using simple text search on src=
+  $("iframe").each(function(index)
+  {
+    src = $(this).attr("src");
+
+    for (i in iframes)
+    {
+      if (src.indexOf(iframes[i]) !== -1)
+      {
+          $(this).remove();
+          ++removed;
+          console.log("Removed <iframe src=\"" + src + "\".");
+      }
+    }
+  });
 
   console.log("Removed " + removed + " elements.");
 
