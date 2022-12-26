@@ -35,6 +35,7 @@ var selectors = [
   "div.ezmob-footer",
   "div.fc-consent-root,div.fc-dialog-overlay",
   "div[class*=sc-15dps6c-0]",
+  ".cookie-policy",
   ".stats-pixel",
   "*[title='Consent Management']",
   "iframe[name$=apiLocator],iframe[name^=googlefc]",
