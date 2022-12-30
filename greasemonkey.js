@@ -19,6 +19,7 @@ var selectors = [
   "#cookiescript_injected",
   "#credential_picker_container,#g_id_onload,#privacy-popup",
   "#ccc,#ccc-module,#ccc-notify,#ccc-overlay",
+  "#didomi-host",
   "#dpr-manager",
   "#ez-cookie-dialog-wrapper",
   "#js-stats",
