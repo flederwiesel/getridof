@@ -61,7 +61,7 @@ var selectors = [
   "leo-abo-hint,ion-modal,ion-popover",
 ];
 
-var domains = [
+var blacklist = [
   "aaxads.com",
   "aaxdetect.com",
   "acdn.adnxs.com",
@@ -95,14 +95,11 @@ setTimeout(() => {
   {
     var src = $(this).attr("src");
 
-    console.debug(">>>>>>> " + $(this).prop("tagName"));
-    console.debug(">>>>>   " + src);
-
     if (src)
     {
-      for (var i in domains)
+      for (var i in blacklist)
       {
-        if (src.indexOf(domains[i]) !== -1)
+        if (src.indexOf(blacklist[i]) !== -1)
         {
           $(this).remove();
           ++removed;
