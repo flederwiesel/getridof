@@ -18,6 +18,7 @@ var selectors = [
   // IDs
   "#__ap_gfc_consent_box_btn__",
   "#ad-blocking,#adblocktest",
+  "#cmpbox,#cmpbox2",
   "#cookiescript_injected",
   "#credential_picker_container,#g_id_onload,#privacy-popup",
   "#ccc,#ccc-module,#ccc-notify,#ccc-overlay",
@@ -27,7 +28,9 @@ var selectors = [
   "#js-stats",
   "#onetrust-consent-sdk",
   "#privacy-banner",
+  "#site-overlay",
   "#tracking_leaderboard_container",
+  "#wpstats",
   // scripts and pixels
   "*[src*=cookieControl]",
   "*[src*=monetization]",
@@ -38,9 +41,14 @@ var selectors = [
   "div.ezmob-footer",
   "div.fc-consent-root,div.fc-dialog-overlay",
   "div[class*=sc-15dps6c-0]",
+  "div[id^=amzn-assoc-ad-]",
+  "div[id^=sp_message_container_]",
+  ".ad,.ad-banner,.adcontainer,.ad-bouncex,.ad-skin,.has-ad-prefix,.page-ad",
   ".cookie-policy",
   ".stats-pixel",
+  "[data-ad-template]",
   "*[title='Consent Management']",
+  "*[title='SP Consent Message']",
   "iframe[name$=apiLocator],iframe[name^=googlefc]",
   "iframe[name|=goog_topics_frame]",
   "iframe[name=__cmpLocator]",
@@ -49,13 +57,18 @@ var selectors = [
 ];
 
 var domains = [
+  "aaxads.com",
+  "aaxdetect.com",
   "acdn.adnxs.com",
   "ads.pubmatic.com",
   "cdn.connectad.io",
   "eus.rubiconproject.com",
   "js-sec.indexww.com",
+  "mgr.consensu.org",
   "onetag-sys.com",
+  "pixel.wp.com",
   "prebid.a-mo.net",
+  "trx-hub.com",
   "u.openx.net",
 ];
 
