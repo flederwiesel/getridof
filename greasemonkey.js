@@ -92,5 +92,9 @@ setTimeout(() => {
   // allow scrolling
   $("body").css("overflow", "auto");
 
+  $(".sp-message-open body").each(function() {
+    $(this).attr("style", "overflow: auto !important; position: static !important");
+  });
+
   console.log("*** monkey finished ***");
 }, 1000);
