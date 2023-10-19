@@ -77,9 +77,9 @@ setTimeout(() => {
 
   console.clear();
 
-  for (sel in selectors)
+  for (var sel in selectors)
   {
-    elems = $(selectors[sel]);
+    var elems = $(selectors[sel]);
     elems.remove();
     removed += elems.length;
     console.log("Removed " + elems.length + " \"" + selectors[sel] + "\".");
@@ -88,14 +88,14 @@ setTimeout(() => {
   // The selectors choke on URLs, iterate over iframes using simple text search on src=
   $("iframe,img").each(function(index)
   {
-    src = $(this).attr("src");
-    
+    var src = $(this).attr("src");
+
     console.log(">>>>>>> " + $(this).prop("tagName"));
     console.log(">>>>>   " + src);
 
     if (src)
     {
-      for (i in domains)
+      for (var i in domains)
       {
         if (src.indexOf(domains[i]) !== -1)
         {
@@ -122,11 +122,11 @@ setTimeout(() => {
 
 $("script").each(function(index)
 {
-  src = $(this).attr("src");
+  var src = $(this).attr("src");
 
   if (src)
   {
-    for (i in domains)
+    for (var i in domains)
     {
       if (src.indexOf(domains[i]) !== -1)
       {
