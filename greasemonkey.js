@@ -166,7 +166,7 @@ setTimeout(() => {
 
 $("script").each(function(index)
 {
-  src = $(this).attr("src");
+  var src = $(this).attr("src");
 
   if (src)
   {
