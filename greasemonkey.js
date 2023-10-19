@@ -1,5 +1,6 @@
 // ==UserScript==
-// @name     getridof - remove ads, trackers and cookie banners
+// @name     getridof
+// @description remove ads, trackers and cookie banners
 // @version  1
 // @grant    none
 // @require https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js
