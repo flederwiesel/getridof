@@ -119,9 +119,9 @@ setTimeout(() => {
 
     if (src)
     {
-      for (var i in domains)
+      for (var i in blacklist)
       {
-        if (src.indexOf(domains[i]) !== -1)
+        if (src.indexOf(blacklist[i]) !== -1)
         {
           $(this).remove();
           ++removed;
@@ -163,3 +163,22 @@ setTimeout(() => {
 
   console.log("*** monkey finished ***");
 }, 1000);
+
+$("script").each(function(index)
+{
+  src = $(this).attr("src");
+
+  if (src)
+  {
+    for (i in blacklist)
+    {
+      if (src.indexOf(blacklist[i]) !== -1)
+      {
+        $(this).remove();
+        ++removed;
+        console.log("Removed <script src=\"" + src + "\".");
+        break;
+      }
+    }
+  }
+});
