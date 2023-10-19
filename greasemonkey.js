@@ -14,6 +14,8 @@
 // https://iditect.com/article/greasemonkey-scripting-api.html
 //
 
+/* eslint-env jquery */
+
 var removed = 0;
 
 var selectors = [
