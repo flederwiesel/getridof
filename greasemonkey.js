@@ -12,6 +12,8 @@
 // https://iditect.com/article/greasemonkey-scripting-api.html
 //
 
+var removed = 0;
+
 var selectors = [
   // IDs
   "#__ap_gfc_consent_box_btn__",
@@ -61,7 +63,6 @@ var iframes = [
 setTimeout(() => {
 
   console.clear();
-  removed = 0;
 
   for (sel in selectors)
   {
@@ -75,6 +76,9 @@ setTimeout(() => {
   $("iframe").each(function(index)
   {
     src = $(this).attr("src");
+    
+    console.log(">>>>>>> " + $(this).prop("tagName"));
+    console.log(">>>>>   " + src);
 
     for (i in iframes)
     {
