@@ -48,7 +48,7 @@ var selectors = [
   "leo-abo-hint,ion-modal,ion-popover",
 ];
 
-var iframes = [
+var domains = [
   "acdn.adnxs.com",
   "ads.pubmatic.com",
   "cdn.connectad.io",
@@ -73,20 +73,24 @@ setTimeout(() => {
   }
 
   // The selectors choke on URLs, iterate over iframes using simple text search on src=
-  $("iframe").each(function(index)
+  $("iframe,img").each(function(index)
   {
     src = $(this).attr("src");
     
     console.log(">>>>>>> " + $(this).prop("tagName"));
     console.log(">>>>>   " + src);
 
-    for (i in iframes)
+    if (src)
     {
-      if (src.indexOf(iframes[i]) !== -1)
+      for (i in domains)
       {
+        if (src.indexOf(domains[i]) !== -1)
+        {
           $(this).remove();
           ++removed;
-          console.log("Removed <iframe src=\"" + src + "\".");
+          console.log("Removed <" + $(this).prop("tagName") + " src=\"" + src + "\".");
+          break;
+        }
       }
     }
   });
@@ -102,3 +106,22 @@ setTimeout(() => {
 
   console.log("*** monkey finished ***");
 }, 1000);
+
+$("script").each(function(index)
+{
+  src = $(this).attr("src");
+
+  if (src)
+  {
+    for (i in domains)
+    {
+      if (src.indexOf(domains[i]) !== -1)
+      {
+        $(this).remove();
+        ++removed;
+        console.log("Removed <script src=\"" + src + "\".");
+        break;
+      }
+    }
+  }
+});
