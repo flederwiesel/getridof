@@ -86,7 +86,7 @@ setTimeout(() => {
     var elems = $(selectors[sel]);
     elems.remove();
     removed += elems.length;
-    console.log("Removed " + elems.length + " \"" + selectors[sel] + "\".");
+    console.debug("Removed " + elems.length + " \"" + selectors[sel] + "\".");
   }
 
   // The selectors choke on URLs, iterate over iframes using simple text search on src=
@@ -94,8 +94,8 @@ setTimeout(() => {
   {
     var src = $(this).attr("src");
 
-    console.log(">>>>>>> " + $(this).prop("tagName"));
-    console.log(">>>>>   " + src);
+    console.debug(">>>>>>> " + $(this).prop("tagName"));
+    console.debug(">>>>>   " + src);
 
     if (src)
     {
@@ -105,14 +105,14 @@ setTimeout(() => {
         {
           $(this).remove();
           ++removed;
-          console.log("Removed <" + $(this).prop("tagName") + " src=\"" + src + "\".");
+          console.debug("Removed <" + $(this).prop("tagName") + " src=\"" + src + "\".");
           break;
         }
       }
     }
   });
 
-  console.log("Removed " + removed + " elements.");
+  console.debug("Removed " + removed + " elements.");
 
   // allow scrolling
   $("body").css("overflow", "auto");
@@ -136,7 +136,7 @@ $("script").each(function(index)
       {
         $(this).remove();
         ++removed;
-        console.log("Removed <script src=\"" + src + "\".");
+        console.debug("Removed <script src=\"" + src + "\".");
         break;
       }
     }
