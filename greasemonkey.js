@@ -115,6 +115,26 @@ setTimeout(() => {
 
   console.debug("Removed " + removed + " elements.");
 
+  // Remove scripts
+  $("script").each(function(index)
+                     {
+    var src = $(this).attr("src");
+
+    if (src)
+    {
+      for (var i in domains)
+      {
+        if (src.indexOf(domains[i]) !== -1)
+        {
+          $(this).remove();
+          ++removed;
+          console.debug("Removed <script src=\"" + src + "\".");
+          break;
+        }
+      }
+    }
+  });
+
   // allow scrolling
   $("body").css("overflow", "auto");
 
@@ -124,22 +144,3 @@ setTimeout(() => {
 
   console.log("*** monkey finished ***");
 }, 1000);
-
-$("script").each(function(index)
-{
-  var src = $(this).attr("src");
-
-  if (src)
-  {
-    for (var i in domains)
-    {
-      if (src.indexOf(domains[i]) !== -1)
-      {
-        $(this).remove();
-        ++removed;
-        console.debug("Removed <script src=\"" + src + "\".");
-        break;
-      }
-    }
-  }
-});
