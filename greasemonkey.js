@@ -110,8 +110,6 @@ setTimeout(() => {
     }
   });
 
-  console.debug("Removed " + removed + " elements.");
-
   // Remove scripts
   $("script").each(function(index)
                      {
@@ -131,6 +129,8 @@ setTimeout(() => {
       }
     }
   });
+
+  console.debug("Removed " + removed + " elements.");
 
   // allow scrolling
   $("body").css("overflow", "auto");
@@ -163,22 +163,3 @@ setTimeout(() => {
 
   console.log("*** monkey finished ***");
 }, 1000);
-
-$("script").each(function(index)
-{
-  var src = $(this).attr("src");
-
-  if (src)
-  {
-    for (i in blacklist)
-    {
-      if (src.indexOf(blacklist[i]) !== -1)
-      {
-        $(this).remove();
-        ++removed;
-        console.log("Removed <script src=\"" + src + "\".");
-        break;
-      }
-    }
-  }
-});
