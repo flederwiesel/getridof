@@ -142,5 +142,27 @@ setTimeout(() => {
     $(this).attr("style", "overflow: auto !important; position: static !important");
   });
 
+  // Callback function to execute when mutations are observed
+  const callback = (mutationList, observer) => {
+    for (const mutation of mutationList) {
+      if (mutation.type === "childList") {
+        mutation.addedNodes.forEach(function (currentValue, currentIndex, listObj) {
+          if (currentValue.outerHTML) {
+            console.warn(`*** Inserted ${currentValue.outerHTML}, ${currentIndex}.`);
+          }
+        });
+      }
+    }
+  };
+
+  // Create an observer instance linked to the callback function
+  const observer = new MutationObserver(callback);
+
+  // Options for the observer (which mutations to observe)
+  const config = { attributes: false, childList: true, subtree: true };
+
+  // Start observing the target node for configured mutations
+  observer.observe(document.getElementsByTagName("body")[0], config);
+
   console.log("*** monkey finished ***");
 }, 1000);
