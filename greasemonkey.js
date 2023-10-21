@@ -3,6 +3,7 @@
 // @description remove ads, trackers and cookie banners
 // @version  1
 // @match *://*/*
+// @run-at document-start
 // @grant    none
 // @require https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js
 // ==/UserScript==
