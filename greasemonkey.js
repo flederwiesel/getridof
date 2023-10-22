@@ -90,8 +90,8 @@ setTimeout(() => {
     console.debug("Removed " + elems.length + " \"" + selectors[sel] + "\".");
   }
 
-  // The selectors choke on URLs, iterate over iframes using simple text search on src=
-  $("iframe,img").each(function(index)
+  // Remove iframes, pixels and scripts based on blacklisted src=
+  $("iframe,img,script").each(function(index)
   {
     var src = $(this).attr("src");
 
@@ -104,26 +104,6 @@ setTimeout(() => {
           $(this).remove();
           ++removed;
           console.debug("Removed <" + $(this).prop("tagName") + " src=\"" + src + "\".");
-          break;
-        }
-      }
-    }
-  });
-
-  // Remove scripts
-  $("script").each(function(index)
-                     {
-    var src = $(this).attr("src");
-
-    if (src)
-    {
-      for (var i in blacklist)
-      {
-        if (src.indexOf(blacklist[i]) !== -1)
-        {
-          $(this).remove();
-          ++removed;
-          console.debug("Removed <script src=\"" + src + "\".");
           break;
         }
       }
