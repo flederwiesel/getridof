@@ -17,9 +17,6 @@
 
 /* eslint-env jquery */
 
-var removed = 0;
-var blacklisted = 0;
-
 var selectors = [
   // IDs
   "#__ap_gfc_consent_box_btn__",
@@ -78,10 +75,10 @@ var blacklist = [
   "u.openx.net",
 ];
 
-// This should be a "all scripts loaded" hook, however, I did not find one yet...
-setTimeout(() => {
-
-  console.clear();
+function remove(desc = "")
+{
+  var removed = 0;
+  var blacklisted = 0;
 
   for (var sel in selectors)
   {
@@ -97,7 +94,7 @@ setTimeout(() => {
 
   // Remove iframes, pixels and scripts based on blacklisted src=
   $("iframe,img,script").each(function(index)
-  {
+                              {
     var src = $(this).attr("src");
 
     if (src)
@@ -115,6 +112,20 @@ setTimeout(() => {
     }
   });
 
+  if (removed)
+    console.info(`Removed ${removed} ${desc}items based on selector.`);
+
+  if (blacklisted)
+    console.info(`Removed ${blacklisted} ${desc}items based on blacklisted src.`);
+}
+
+// This should be a "all scripts loaded" hook, however, I did not find one yet...
+setTimeout(() => {
+
+  console.clear();
+
+  remove();
+
   // allow scrolling
   $("body").css("overflow", "auto");
 
@@ -124,15 +135,26 @@ setTimeout(() => {
 
   // Callback function to execute when mutations are observed
   const callback = (mutationList, observer) => {
+    var removed = 0;
+    var blacklisted = 0;
+
     for (const mutation of mutationList) {
       if (mutation.type === "childList") {
         mutation.addedNodes.forEach(function (currentValue, currentIndex, listObj) {
           if (currentValue.outerHTML) {
             console.warn(`>>> Inserted ${currentValue.outerHTML}.`);
           }
+
+          remove(" *inserted* ");
         });
       }
     }
+
+    if (removed)
+      console.info(`Removed ${removed} items based on selector.`);
+
+    if (blacklisted)
+      console.info(`Removed ${blacklisted} items based on blacklisted src.`);
   };
 
   // Create an observer instance linked to the callback function
@@ -143,12 +165,6 @@ setTimeout(() => {
 
   // Start observing the target node for configured mutations
   observer.observe(document.getElementsByTagName("body")[0], config);
-
-  if (removed)
-    console.info(`Removed ${removed} items based on selector.`);
-
-  if (blacklisted)
-    console.info(`Removed ${blacklisted} items based on blacklisted src.`);
 
   console.info("*** monkey finished ***");
 }, 1000);
