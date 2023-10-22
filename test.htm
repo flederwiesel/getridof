@@ -111,11 +111,15 @@ setTimeout(() => {
 	elems = $("body :not(script)");
 
 	if (0 == elems.length)
+	{
 		$("body").append(`<div class="passed">Removed all unwanted elements.</div>`);
+	}
 	else
+	{
 		$("body").append(`<div class="failed">Failed to remove ${elems.length} elements.</div>`);
+		console.log(elems);
+	}
 
-	console.log(elems);
 }, 3000);
 </script>
 </body>
