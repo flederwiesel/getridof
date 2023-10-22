@@ -21,6 +21,8 @@ var selectors = [
   // IDs
   "#__ap_gfc_consent_box_btn__",
   "#ad-blocking,#adblocktest",
+  "#adFooter",
+  "#Ads_BA_POP",
   "#cmpbox,#cmpbox2",
   "#cookiescript_injected",
   "#credential_picker_container,#g_id_onload,#privacy-popup",
@@ -32,6 +34,8 @@ var selectors = [
   "#onetrust-consent-sdk",
   "#privacy-banner",
   "#site-overlay",
+  "#tptn_tracker-js",
+  "#tptn_tracker-js-extra",
   "#tracking_leaderboard_container",
   "#wpstats",
   // scripts and pixels
@@ -46,7 +50,7 @@ var selectors = [
   "div[class*=sc-15dps6c-0]",
   "div[id^=amzn-assoc-ad-]",
   "div[id^=sp_message_container_]",
-  ".ad,.ad-banner,.adcontainer,.ad-bouncex,.ad-skin,.has-ad-prefix,.page-ad",
+  ".ad,.ad-banner,.adcontainer,.advert*,.ad-bouncex,.ad-skin,.has-ad-prefix,.page-ad",
   ".cookie-policy",
   ".stats-pixel",
   "[data-ad-template]",
@@ -55,8 +59,11 @@ var selectors = [
   "iframe[name$=apiLocator],iframe[name^=googlefc]",
   "iframe[name|=goog_topics_frame]",
   "iframe[name=__cmpLocator]",
+  "iframe[name=__tcfapiLocator]",
+  "iframe[name=cnftComm]",
   // "voluntary" abo suggestions
   "leo-abo-hint,ion-modal,ion-popover",
+  "iframe[name^=__privateStripeMetricsController]",
 ];
 
 var blacklist = [
