@@ -16,6 +16,7 @@
 //
 
 /* eslint-env jquery */
+/* eslint-curly: ["error", "multi-or-nest"] */
 
 var selectors = [
   "#__ap_gfc_consent_box_btn__",
