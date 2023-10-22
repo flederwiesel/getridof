@@ -50,6 +50,8 @@ var selectors = [
   "div[class*=sc-15dps6c-0]",
   "div[id^=amzn-assoc-ad-]",
   "div[id^=sp_message_container_]",
+  "div.needsclick",
+  "div.cmp-root-container",
   "#baguetteBox-overlay",
   ".ad,.ad-banner,.adcontainer,.advert*,.ad-bouncex,.ad-skin,.has-ad-prefix,.page-ad",
   ".cookie-policy",
