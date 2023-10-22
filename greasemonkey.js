@@ -83,6 +83,11 @@ var blacklist = [
   "u.openx.net",
 ];
 
+// These site may insert new elements
+var insertElementsWhitelist = [
+  "globe\.adsbexchange\.com",
+];
+
 function remove(desc = "")
 {
   var removed = 0;
@@ -169,7 +174,21 @@ setTimeout(() => {
   console.clear();
 
   remove();
-  removeInserts();
+
+  // Watching inserted elements is quite costly, so have a whitelist at hand...
+  var allowInserts = false;
+
+  for (var i in insertElementsWhitelist)
+  {
+    if (window.location.href.match(insertElementsWhitelist[i]))
+    {
+      allowInserts = true;
+      break;
+    }
+  }
+
+  if (!allowInserts)
+    removeInserts();
 
   // allow scrolling
   $("body").css("overflow", "auto");
