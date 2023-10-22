@@ -18,6 +18,7 @@
 /* eslint-env jquery */
 
 var removed = 0;
+var blacklisted = 0;
 
 var selectors = [
   // IDs
@@ -102,15 +103,13 @@ setTimeout(() => {
         if (src.indexOf(blacklist[i]) !== -1)
         {
           $(this).remove();
-          ++removed;
+          ++blacklisted;
           console.debug("Removed <" + $(this).prop("tagName") + " src=\"" + src + "\".");
           break;
         }
       }
     }
   });
-
-  console.debug("Removed " + removed + " elements.");
 
   // allow scrolling
   $("body").css("overflow", "auto");
@@ -141,5 +140,11 @@ setTimeout(() => {
   // Start observing the target node for configured mutations
   observer.observe(document.getElementsByTagName("body")[0], config);
 
-  console.log("*** monkey finished ***");
+  if (removed)
+    console.info(`Removed ${removed} items based on selector.`);
+
+  if (blacklisted)
+    console.info(`Removed ${blacklisted} items based on blacklisted src.`);
+
+  console.info("*** monkey finished ***");
 }, 1000);
