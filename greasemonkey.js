@@ -119,20 +119,8 @@ function remove(desc = "")
     console.info(`Removed ${blacklisted} ${desc}items based on blacklisted src.`);
 }
 
-// This should be a "all scripts loaded" hook, however, I did not find one yet...
-setTimeout(() => {
-
-  console.clear();
-
-  remove();
-
-  // allow scrolling
-  $("body").css("overflow", "auto");
-
-  $(".sp-message-open body").each(function() {
-    $(this).attr("style", "overflow: auto !important; position: static !important");
-  });
-
+function removeInserts()
+{
   // Callback function to execute when mutations are observed
   const callback = (mutationList, observer) => {
     var removed = 0;
@@ -165,6 +153,22 @@ setTimeout(() => {
 
   // Start observing the target node for configured mutations
   observer.observe(document.getElementsByTagName("body")[0], config);
+}
+
+// This should be a "all scripts loaded" hook, however, I did not find one yet...
+setTimeout(() => {
+
+  console.clear();
+
+  remove();
+  removeInserts();
+
+  // allow scrolling
+  $("body").css("overflow", "auto");
+
+  $(".sp-message-open body").each(function() {
+    $(this).attr("style", "overflow: auto !important; position: static !important");
+  });
 
   console.info("*** monkey finished ***");
 }, 1000);
