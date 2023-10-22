@@ -86,9 +86,13 @@ setTimeout(() => {
   for (var sel in selectors)
   {
     var elems = $(selectors[sel]);
-    elems.remove();
-    removed += elems.length;
-    console.debug("Removed " + elems.length + " \"" + selectors[sel] + "\".");
+
+    if (elems.length)
+    {
+      removed += elems.length;
+      elems.remove();
+      console.debug("Removed " + elems.length + " \"" + selectors[sel] + "\".");
+    }
   }
 
   // Remove iframes, pixels and scripts based on blacklisted src=
