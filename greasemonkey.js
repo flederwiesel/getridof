@@ -145,7 +145,7 @@ setTimeout(() => {
       if (mutation.type === "childList") {
         mutation.addedNodes.forEach(function (currentValue, currentIndex, listObj) {
           if (currentValue.outerHTML) {
-            console.warn(`*** Inserted ${currentValue.outerHTML}, ${currentIndex}.`);
+            console.warn(`>>> Inserted ${currentValue.outerHTML}.`);
           }
         });
       }
