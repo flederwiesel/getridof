@@ -178,6 +178,7 @@ setTimeout(() => {
 
   remove();
 
+  /*
   // Watching inserted elements is quite costly, so have a whitelist at hand...
   var allowInserts = false;
 
@@ -192,6 +193,7 @@ setTimeout(() => {
 
   if (!allowInserts)
     removeInserts();
+  */
 
   // allow scrolling
   $("body").css("overflow", "auto");
